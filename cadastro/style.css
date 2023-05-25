@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.body-background 
+{
+	background-image: url(../svg/logo.svg);
+	background-repeat: no-repeat;
+	background-color: #e5e5e5;
+}
+
+.box-cadastro
+{
+	background-color: #FFFFFF;
+	border-radius: 16px;
+	width: 522px;
+	height: 466px;
+	margin-top: 96px;
+	margin-left: 656px;
+	box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+	padding: 0;
+}
+
+.logowexer img
+{
+	width: 182px;
+	height: 40px;
+	margin-left: 159px;
+	margin-top: 43px;
+}
+
+.textobv
+{
+	text-align: center;
+	font-family: 'Montserrat';
+	color: #00995D;
+	margin-top: 25px;
+
+}
+
+.textobv h6
+{
+	font-size: 18px;
+}
+
+.textobv p
+{
+	font-size: 16px;
+}
+
+.entradas
+{
+	margin-left: 70px;
+	margin-top: 20px;
+	width: 379px;
+	height: 70px;
+	border-radius: 8px;
+	font-family: 'Roboto';
+}
+
+.entradas label
+{
+	font-size: 14px;
+	margin-bottom: 1px;
+	font-family: 'Roboto';
+}
+
+.entradas input
+{
+	font-family: 'Roboto';
+	color: #828282;
+}
+
+.entradas button
+{
+	background-color: #00995D;
+	border-color: #00995D;
+	margin-top: 16px;
+	margin-left: 187px;
+	width: 192px;
+	height: 48px;
+	box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.15);
+	font-family: 'Montserrat';
+	font-weight: bold;
+	font-size: 16px;
+
+	--bs-btn-active-bg: #017849;
+	--bs-btn-active-border-color: #FFFFFF;
+}
+
+.entradas button:hover
+{
+	filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.1));
+	background-color: #017849;
+	border-color: #00995D;
+}
+
+.entradas input:focus
+{
+	border-color: rgba(0, 153, 93);
+	box-shadow: 0 1px 1px rgba(255, 255, 255) inset, 0 0 8px rgba(255, 255, 255);
+	outline: 0 none;	
+}
+
+.box-senha
+{
+	background-color: #FFFFFF;
+	border-radius: 16px;
+	width: 522px;
+	height: 534px;
+	margin-top: 96px;
+	margin-left: 656px;
+	box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+	padding: 0;
+}
+
+.textsenha h6
+{
+	font-size: 14px;
+	font-family: 'Montserrat';
+	color: #6F6F6E;
+
+}
+
+.textsenha span
+{
+	color: #EB5757;
+}
+
+.css-botao button
+{
+	background-color: #00995D;
+	border-color: #00995D;
+	margin-top: 24px;
+	margin-left: 187px;
+	width: 192px;
+	height: 48px;
+	box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.15);
+	font-family: 'Montserrat';
+	font-weight: bold;
+	font-size: 16px;
+
+	--bs-btn-active-bg: #017849;
+	--bs-btn-active-border-color: #FFFFFF;
+}
+
+.css-botao button:hover
+{
+	filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.1));
+	background-color: #017849;
+	border-color: #00995D;
+}

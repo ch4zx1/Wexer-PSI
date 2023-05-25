@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.body-background 
+{
+	background-image: url(../svg/logo.svg);
+	background-repeat: no-repeat;
+	background-color: #e5e5e5;
+}
+
+.box-login
+{
+	background-color: #017849;
+	border-radius: 16px;
+	width: 608px;
+	height: 608px;
+	margin-top: 106px;
+	margin-left: 656px;
+	box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+	padding: 0;
+}
+
+.logowexer img
+{
+	width: 321px;
+	height: 127px;
+	margin-left: 132px;
+	margin-top: 77px;
+}
+
+
+.entradas
+{
+	margin-left: 103px;
+	margin-top: 65px;
+	width: 379px;
+	height: 70px;
+	border-radius: 8px;
+	font-family: 'Roboto';
+}
+
+.entradas label
+{
+	color: #FFFFFF; 
+	font-size: 14px;
+	margin-bottom: 1px;
+	font-family: 'Roboto';
+}
+
+.entradas input
+{
+	font-family: 'Roboto';
+	color: #828282;
+}
+
+.entradas input:focus
+{
+	border-color: #017849;
+	box-shadow: 0 1px 1px #017849 inset, 0 0 8px #017849;
+	outline: 0 none;	
+}
+
+.botao-cor-fix
+{
+	background-color: #017849;
+	border-color: #FFFFFF;
+	margin-top: 16px;
+	width: 379px;
+	height: 48px;
+
+	font-family: 'Montserrat';
+	font-weight: 700;
+	font-size: 16px;
+
+	--bs-btn-active-bg: #017849;
+	--bs-btn-active-border-color: #FFFFFF;
+}
+
+.botao-cor-fix:hover
+{
+	filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.1));
+	background-color: #017849;
+	border-color: #FFFFFF;
+}
+
+.botao-cor-fix:active
+{
+	filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.1));
+	background-color: #017849;
+	border-color: #FFFFFF;
+}
+
+.ancora-cadastro
+{
+	margin-top: 12.00rem;
+	margin-left: 9.88rem; 
+}
+
+.ancora-cadastro a
+{
+	font-family: 'Montserrat';
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 18px;
+}

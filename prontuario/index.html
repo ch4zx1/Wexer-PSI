@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+	<link rel="stylesheet" href="./style.css">
+	<title>Wexer Prontuario</title>
+</head>
+<body class="body-all" onload="checkuser()">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container logo-css d-flex justify-content-center">
+			<a class="navbar-brand" href="../../dashboard/index.html">
+				<img src="../svg/topo.svg" alt="Logo da Wexer" width="60" height="48">
+			</a>
+		</div>
+		<div class="ancora-prontuario">
+			<a href='../dashboard/index.html'>Voltar para listagem</a>
+		</div>
+		
+		<div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle texto-navbar " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbar-nome">
+						Tentando carregar...
+					</a>
+					<ul class="dropdown-menu dropdown-a text-body-secondary" style="width: 279px; margin-top: 40px; margin-left: 30px;">
+						<div class="dropdown-user12">
+							<span id="nome-dropdown" class="nome-dropdown">
+								Tentando carregar...
+							</span>
+							<span id="email-dropdown" class="email-dropdown">
+								Tentando carregar...
+							</span>
+						</div>
+						<div class="sair-dp">
+							<button type="button" onclick="deslogar()" class="btn"><img src="../svg/corner-down-right.svg"><span>Sair</span></button>
+						</div>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col title">
+				<h3>Prontuário</h3>
+			</div>
+			<div class="col">
+				<form class="d-flex pesquisar" role="search">
+				<input class="form-control" id="pesquisar-prontuario" type="search" placeholder="Pesquisar" aria-label="Search">
+				<button class="btn btn-outline-success" type="button" onclick="pesquisap()"><i class="fa-solid fa-magnifying-glass m-1"></i><span>Filtrar</span></button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="container box-id">
+					<div class="row ms-1">
+						<div class="col">
+							<h4>Identificação do Paciente</h4>
+						</div>
+					</div>
+					<div class="row ms-1 mt-3">
+						<div class="col">
+							<h5><img src="../svg/usuario.svg" alt="Icone Paciente">Paciente</h5>
+							<span id="nomep">Tentando carregar...</span>
+						</div>
+					</div>
+					<div class="row ms-1 mt-3">
+						<div class="col">
+							<h5><img src="../svg/calendario.svg" alt="Icone Nascimento">Nascimento</h5>
+							<span id="nascimentop">Tentando carregar...</span>
+						</div>
+					</div>
+					<div class="row ms-1 mt-3">
+						<div class="col">
+							<h5><img src="../svg/maleta.svg" alt="Icone Profissão">Profissão</h5>
+							<span id="profissaop">Tentando carregar...</span>
+						</div>
+					</div>
+					<div class="row ms-1 mt-3">
+						<div class="col">
+							<h5><img src="../svg/bookmark.svg" alt="Icone Escolaridade">Escolaridade</h5>
+							<span id="escolaridadep">Tentando carregar...</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="container box-sessao">
+					<div class="row">
+						<div class="col">
+							<button class="botao-sessao"  data-bs-toggle="modal" data-bs-target="#abrirsessao"><img src="../svg/mental-health-fill.svg" alt="Nova Sessão">Sessão</button>
+						</div>
+						<div class="col">
+							<button class="botao-sessao" data-bs-toggle="modal" data-bs-target="#abrirfatos"><img src="../svg/pushpin-fill.svg" alt="Novo Fato Relevante">Fato Relevante</button>
+						</div>
+				</div>
+			</div>
+			<div class="row mt-3" id="filtro-p1">
+				<!--Codigoinjetado-->
+			</div>
+			<div id="injetarsessaofato">
+				<!--Codig injetado-->
+			</div>
+			<div class="backtotop">
+				<button id="back-to-top"><img src="../svg/arrowhead-up.svg">Voltar ao topo</button>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<!-- Modal sessao -->
+			<div class="modal fade" id="abrirsessao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-body modal-sessao">
+						<div class="row">
+							<div class="col text-start titulo-modal">
+								Nova Sessão
+							</div>
+							<div class="col text-end">
+								<button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">
+									<i class="fa-sharp fa-solid fa-circle-xmark "></i></button>
+							</div>
+						</div>
+					<div class="box-nova">
+						<div class="row">
+							<div class="col texto-ellipse" style="margin-top: 10px;">
+								<img src="../svg/1.svg">
+								<span>Dados Gerais</span>
+							</div>
+						</div>
+							<div class="row">
+								<div class="col-3 me-5 sessao-input">
+									<label for="diaa">Dia*</label>
+									<input type="date" id="diaid" name="diaa">
+								</div>
+								<div class="col-3 me-5 sessao-input">
+									<label for="timestart">Hora de início*</label>
+									<input type="time" id="timestart" required>
+								</div>
+								<div class="col-3 me-5 sessao-input">
+									<label for="timeend">Hora fim*</label>
+									<input type="time" id="timeend" required>
+								</div>
+							</div>
+							<hr style="margin-top: 23px; margin-bottom: 23px;">
+							<div class="row">
+								<div class="col texto-ellipse">
+									<img src="../svg/2.svg">
+									<span>Sessão</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col sessao-titulo">
+									<label for="sessao-titulo">Titulo*</label>
+                    				<input type="text" placeholder="Digite" id="sessao-titulo">
+								</div>
+								<div class="row">
+									<div class="col sessao-titulo">
+										<label for="sessao-titulo">Resumo da sessão*</label>
+										<textarea class="form-control resumo-text" id="resumo-text"></textarea>
+									</div>
+								</div>
+							<hr style="margin-top:23px;margin-bottom:23px;">
+							<div class="row">
+								<div class="col texto-ellipse">
+									<img src="../svg/3.svg">
+									<span>Pagamento</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col sessao-pagamento">
+									<label for="">Valor</label>
+									<input type="currency" value="1" id="valor">
+								</div>
+								<div class="col sessao-pagamento">
+									<label for="">Forma de pagamento</label>
+									<select class="form-select" id="tipopagamento">
+										<option selected>Selecione</option>
+										<option value="1">Pix</option>
+										<option value="2">Dinheiro</option>
+										<option value="3">Cartão de crédito</option>
+										<option value="4">Cartão de débito</option>
+									  </select>
+								</div>
+								<div class="col selecionar-pagamento">
+									<div class="form-check form-check-inline" id="pagostatus">
+										<p>Status</p>
+										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+										<label class="form-check-label" for="inlineRadio1">Pago</label>
+									  </div>
+									  <div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+										<label class="form-check-label" for="inlineRadio2">Não pago</label>
+									  </div>
+								</div>							
+							</div>
+							<div class="row">
+								<div class="col-1 icone-dica">
+									<img src="../svg/pin.svg" alt="Icone Dica">
+								</div>
+								<div class="col-7 texto-dica">
+									<span><b>Dica:</b> Registrar os pagamentos das sessões irá te auxiliar na sua organização financeira.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="modal-footer">
+						<div class="container">
+							<div class="row">
+								<div class="col-7 footer-text-fix">
+									<p>*Campos obrigatórios</p>
+								</div>
+								<div class="col" style="margin-left: 40px">
+									<button type="button" class="btn botao-cancelar" data-bs-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-primary btn-modal-criar" data-bs-dismiss="modal" id="criarsessao">Criar</button>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+	</div>
+
+	<div>
+		<!-- Modal editar sessao -->
+			<div class="modal fade" id="editarsessao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-body modal-sessao">
+						<div class="row">
+							<div class="col text-start titulo-modal">
+								Editar Sessão
+							</div>
+							<div class="col text-end">
+								<button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">
+									<i class="fa-sharp fa-solid fa-circle-xmark"></i></button>
+							</div>
+						</div>
+					<div class="box-nova">
+						<div class="row">
+							<div class="col texto-ellipse" style="margin-top: 10px;">
+								<img src="../svg/1.svg">
+								<span>Dados Gerais</span>
+							</div>
+						</div>
+							<div class="row">
+								<div class="col-3 me-5 sessao-input">
+									<label for="diaa">Dia*</label>
+									<input type="date" id="diaideditar" name="diaa">
+								</div>
+								<div class="col-3 me-5 sessao-input">
+									<label for="timestart">Hora de início*</label>
+									<input type="time" id="timestarteditar" required>
+								</div>
+								<div class="col-3 me-5 sessao-input">
+									<label for="timeend">Hora fim*</label>
+									<input type="time" id="timeendeditar" required>
+								</div>
+							</div>
+							<hr style="margin-top: 23px; margin-bottom: 23px;">
+							<div class="row">
+								<div class="col texto-ellipse">
+									<img src="../svg/2.svg">
+									<span>Sessão</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col sessao-titulo">
+									<label for="sessao-titulo">Titulo*</label>
+                    				<input type="text" placeholder="Digite" id="sessao-tituloeditar">
+								</div>
+								<div class="row">
+									<div class="col sessao-titulo">
+										<label for="sessao-titulo">Resumo da sessão*</label>
+										<textarea class="form-control resumo-text" id="resumo-texteditar"></textarea>
+									</div>
+								</div>
+							<hr style="margin-top:23px;margin-bottom:23px;">
+							<div class="row">
+								<div class="col texto-ellipse">
+									<img src="../svg/3.svg">
+									<span>Pagamento</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col sessao-pagamento">
+									<label for="">Valor</label>
+									<input type="currency" value="1" id="valoreditar">
+								</div>
+								<div class="col sessao-pagamento">
+									<label for="">Forma de pagamento</label>
+									<select class="form-select" id="tipopagamentoeditar">
+										<option selected>Selecione</option>
+										<option value="1">Pix</option>
+										<option value="2">Dinheiro</option>
+										<option value="3">Cartão de crédito</option>
+										<option value="4">Cartão de débito</option>
+									  </select>
+								</div>
+								<div class="col selecionar-pagamento">
+									<div class="form-check form-check-inline" id="pagostatuseditar">
+										<p>Status</p>
+										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1editar" value="1">
+										<label class="form-check-label" for="inlineRadio1editar">Pago</label>
+									  </div>
+									  <div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2editar" value="2">
+										<label class="form-check-label" for="inlineRadio2editar">Não pago</label>
+									  </div>
+								</div>							
+							</div>
+							<div class="row">
+								<div class="col-1 icone-dica">
+									<img src="../svg/pin.svg" alt="Icone Dica">
+								</div>
+								<div class="col-7 texto-dica">
+									<span><b>Dica:</b> Registrar os pagamentos das sessões irá te auxiliar na sua organização financeira.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="modal-footer">
+						<div class="container">
+							<div class="row">
+								<div class="col-7 footer-text-fix">
+									<p>*Campos obrigatórios</p>
+								</div>
+								<div class="col" style="margin-left: 40px" id="ssinjetar">
+									<!--Codigo injetado-->
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+	</div>
+
+	<div>
+		<!-- Modal fatos -->
+			<div class="modal fade" id="abrirfatos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="row">
+							<div class="col text-start titulo-modal">
+								Novo Fato Relevante
+							</div>
+							<div class="col text-end">
+								<button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">
+									<i class="fa-sharp fa-solid fa-circle-xmark "></i></button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-4 date-form-fix">
+								<div class="date-form">
+									<label for="diaa">Data*</label>
+									<input type="date" id="datafato" name="diaa">
+								</div>
+								
+							</div>
+							<div class="col date-form">
+								<form>
+									<div class="mb-3">
+										<label for="titulo" class="col-form">Título*</label>
+										<input type="text" class="form-control titulo-form" id="fato-titulo" id="recipient-name">
+									</div>
+								  </form>
+							</div>
+							<form>
+								<div class="mb-3 date-form">
+									<label for="message-text" class="col-form-label">Descrição*</label>
+									<textarea class="form-control" style="height: 200px;" id="descricaofato" maxlength='70'></textarea>
+								  </div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="container">
+							<div class="row">
+								<div class="col-6 footer-text-fix">
+									<p>*Campos obrigatórios</p>
+								</div>
+								<div class="col" style="margin-left: 105px;">
+									<button type="button" class="btn botao-cancelar" data-bs-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-primary btn-modal-criar" id="criarfato" data-bs-dismiss="modal">Criar</button>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<!-- Modal editar fatos -->
+				<div class="modal fade" id="editarfatos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col text-start titulo-modal">
+									Editar Fato Relevante
+								</div>
+								<div class="col text-end">
+									<button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">
+										<i class="fa-sharp fa-solid fa-circle-xmark "></i></button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-4 date-form-fix">
+									<div class="date-form">
+										<label for="diaa">Data*</label>
+										<input type="date" id="datafatoeditar" name="diaa">
+									</div>
+									
+								</div>
+								<div class="col date-form">
+									<form>
+										<div class="mb-3">
+											<label for="titulo" class="col-form">Título*</label>
+											<input type="text" class="form-control titulo-form" id="fato-tituloeditar">
+										</div>
+									  </form>
+								</div>
+								<form>
+									<div class="mb-3 date-form">
+										<label for="message-text" class="col-form-label">Descrição*</label>
+										<textarea class="form-control" style="height: 200px;" id="descricaofatoeditar" maxlength='70'></textarea>
+									  </div>
+								</form>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="container">
+								<div class="row">
+									<div class="col-7 footer-text-fix">
+										<p>*Campos obrigatórios</p>
+									</div>
+									<div class="col" style="margin-left: 42px;" id="sfinjetar">
+										<!--Codigo injetado-->
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>	
+		<div>
+			<!-- Modal sucess -->
+			<div class="modal fade" id="abrirsucess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content modal-sucess">
+					<div class="modal-body">
+					
+						<div class="sucess-gif">
+							<img src="../svg/success.gif">
+						</div>
+					
+						<div class="sucess-text">
+							<p id="sucesstext">Cadastrado com sucesso</p>
+						</div>
+		
+						<button type="button" id="sucessreload" class="btn btn-success modal-btn-sucess">OK</button>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	
+		<div>
+			<!-- Modal confirmar -->
+			<div class="modal fade" id="abrirconfirmar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				<div class="modal-content modal-sucess">
+					<div class="modal-body">
+					
+						<div class="sucess-text">
+							<p id="sucesstext">Quer realmente apagar?</p>
+						</div>
+		
+						<div class="row">
+							<div id="confirmar-botoes">
+								<!--Codigo injetado-->
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+
+	<script src="index.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>
